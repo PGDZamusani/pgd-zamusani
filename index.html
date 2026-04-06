@@ -1,201 +1,153 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PGD ZAMUŠANI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PGD ZAMUŠANI</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#111;
+}
+
+/* NAV */
+nav {
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter: blur(6px);
+    padding:15px;
+    text-align:center;
+    z-index:1000;
+}
+
+nav a {
+    color:white;
+    margin:0 12px;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+    font-size:13px;
+}
+
+nav a:hover {
+    color:red;
+}
+
+/* HERO */
+.hero {
+    position:relative;
+    height:100vh;
+    background-size:cover;
+    background-position:center;
+}
+
+/* TEMNI OVERLAY */
+.hero::before {
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+}
+
+/* CONTENT */
+.hero-content {
+    position:absolute;
+    bottom:60px;
+    left:60px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    z-index:2;
+
+    background:rgba(0,0,0,0.3);
+    padding:20px 25px;
+    border-radius:20px;
+    backdrop-filter: blur(8px);
+}
+
+/* LOGO */
+.hero-content img {
+    height:90px;
+    background:white;
+    padding:5px;
+    border-radius:10px;
+}
+
+/* TEXT */
+.hero-content h1 {
+    color:white;
+    font-size:65px;
+    margin:0;
+    text-transform:uppercase;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .hero-content {
+        left:20px;
+        bottom:30px;
+        flex-direction:column;
+        text-align:center;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: Arial, sans-serif;
+    .hero-content h1 {
+        font-size:35px;
     }
 
-    body {
-      overflow-x: hidden;
+    .hero-content img {
+        height:70px;
     }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.72);
-      z-index: 1000;
-    }
-
-    .nav-wrap {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .logo-text {
-      color: white;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 16px;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-
-    #menu-toggle {
-      display: none;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: white;
-      display: block;
-      border-radius: 2px;
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .menu a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    .menu a:hover {
-      color: red;
-    }
-
-    .hero {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding-top: 120px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: url('hero1.jpg');
-    }
-
-    .hero h1 {
-      margin: 0;
-      padding: 0 20px;
-      color: white;
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 90px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.45);
-    }
-
-    @media (max-width: 900px) {
-      .hamburger {
-        display: flex;
-      }
-
-      .menu {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        gap: 0;
-        padding-top: 10px;
-      }
-
-      .menu a {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 12px 6px;
-        border-top: 1px solid rgba(255,255,255,0.12);
-        font-size: 13px;
-      }
-
-      #menu-toggle:checked ~ .menu {
-        display: flex;
-      }
-
-      .nav-wrap {
-        flex-wrap: wrap;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
+
 <body>
 
-  <nav>
-    <div class="nav-wrap">
-      <div class="logo-text">PGD ZAMUŠANI</div>
+<nav>
+    <a href="#">ZGODOVINA DRUŠTVA</a>
+    <a href="#">DELO Z MLADINO</a>
+    <a href="#">STAREJŠI GASILCI</a>
+    <a href="#">ZAMUŠANSKA NOČ</a>
+    <a href="#">INTERVENCIJE</a>
+    <a href="#">KONTAKT</a>
+</nav>
 
-      <input type="checkbox" id="menu-toggle" />
+<div class="hero" id="hero">
 
-      <label for="menu-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <div class="menu">
-        <a href="zgodovina.html">ZGODOVINA DRUŠTVA</a>
-        <a href="mladina.html">DELO Z MLADINO</a>
-        <a href="starejsi.html">STAREJŠI GASILCI IN GASILKE</a>
-        <a href="zamusanska-noc.html">ZAMUŠANSKA NOČ</a>
-        <a href="intervencije.html">INTERVENCIJE</a>
-        <a href="kontakt.html">KONTAKT</a>
-        <a href="etno.html">ETNOGRAFSKA SEKCIJA</a>
-      </div>
+    <div class="hero-content">
+        <img src="grb.png">
+        <h1>PGD ZAMUŠANI</h1>
     </div>
-  </nav>
 
-  <div class="hero" id="hero">
-    <h1>PGD ZAMUŠANI</h1>
-  </div>
+</div>
 
-  <script>
-    const images = [
-      "hero1.jpg",
-      "hero2.jpg",
-      "hero3.jpg.jpeg"
-    ];
+<script>
+const images = [
+    "hero1.jpg",
+    "hero2.jpg",
+    "hero3.jpg.jpeg"
+];
 
-    let current = 0;
-    const hero = document.getElementById("hero");
+let i = 0;
 
-    function changeHeroBackground() {
-      hero.style.backgroundImage = "url('" + images[current] + "')";
-      current = (current + 1) % images.length;
-    }
+function changeBg() {
+    document.getElementById("hero").style.backgroundImage =
+        "url('" + images[i] + "')";
+    i = (i + 1) % images.length;
+}
 
-    changeHeroBackground();
-    setInterval(changeHeroBackground, 25000);
-  </script>
+changeBg();
+setInterval(changeBg, 25000);
+</script>
 
 </body>
 </html>
