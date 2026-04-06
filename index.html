@@ -1,191 +1,208 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PGD Zamušani</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PGD ZAMUŠANI</title>
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      width: 100%;
+      height: 100%;
+    }
 
-/* NAVIGATION */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.72);
-    z-index: 1000;
-}
+    body {
+      overflow-x: hidden;
+    }
 
-.nav-wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
 
-.logo-text {
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
+    .nav-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-.menu {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 13px;
-}
-
-.menu a:hover {
-    color: red;
-}
-
-/* HAMBURGER */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 28px;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-    display: block;
-}
-
-#menu-toggle {
-    display: none;
-}
-
-/* HERO */
-.hero {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 140px;
-    animation: slideshow 75s infinite;
-}
-
-.hero h1 {
-    color: white;
-    font-size: 90px;
-    text-transform: uppercase;
-    margin: 0;
-    text-align: center;
-    padding: 0 20px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.45);
-}
-
-/* SLIDESHOW: 3 slike, vsaka ~25s */
-@keyframes slideshow {
-    0% { background-image: url('hero1.jpg'); }
-    33% { background-image: url('hero2.jpg'); }
-    66% { background-image: url('hero3.jpg'); }
-    100% { background-image: url('hero1.jpg'); }
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
     .logo-text {
-        font-size: 14px;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    #menu-toggle {
+      display: none;
     }
 
     .hamburger {
-        display: flex;
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
     }
 
     .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .menu a:hover {
+      color: red;
+    }
+
+    .hero {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 130px;
+      background-image: url('hero1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: slideshow 75s infinite;
+    }
+
+    .hero h1 {
+      margin: 0;
+      padding: 0 20px;
+      color: white;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 90px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+    }
+
+    @keyframes slideshow {
+      0% {
+        background-image: url('hero1.jpg');
+      }
+      33% {
+        background-image: url('hero2.jpg');
+      }
+      66% {
+        background-image: url('hero3.jpg.jpeg');
+      }
+      100% {
+        background-image: url('hero1.jpg');
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .menu {
         display: none;
         width: 100%;
         flex-direction: column;
         gap: 0;
-        padding: 10px 0 0 0;
-    }
+        padding-top: 10px;
+      }
 
-    .menu a {
+      .menu a {
         display: block;
-        padding: 12px 6px;
+        width: 100%;
         text-align: center;
+        padding: 12px 6px;
         border-top: 1px solid rgba(255,255,255,0.12);
         font-size: 13px;
-    }
+      }
 
-    #menu-toggle:checked ~ .menu {
+      #menu-toggle:checked ~ .menu {
         display: flex;
-    }
+      }
 
-    .nav-wrap {
+      .nav-wrap {
         flex-wrap: wrap;
-    }
+      }
 
-    .hero {
-        padding-top: 110px;
+      .hero {
         animation: none;
         background-image: url('hero1.jpg');
-    }
+        padding-top: 110px;
+      }
 
-    .hero h1 {
-        font-size: 42px;
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .logo-text {
+        font-size: 14px;
+      }
     }
-}
-</style>
+  </style>
 </head>
 <body>
 
-<nav>
+  <nav>
     <div class="nav-wrap">
-        <div class="logo-text">PGD ZAMUŠANI</div>
+      <div class="logo-text">PGD ZAMUŠANI</div>
 
-        <input type="checkbox" id="menu-toggle">
+      <input type="checkbox" id="menu-toggle" />
 
-        <label for="menu-toggle" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-        <div class="menu">
-            <a href="zgodovina.html">ZGODOVINA DRUŠTVA</a>
-            <a href="mladina.html">DELO Z MLADINO</a>
-            <a href="starejsi.html">STAREJŠI GASILCI IN GASILKE</a>
-            <a href="zamusanska-noc.html">ZAMUŠANSKA NOČ</a>
-            <a href="intervencije.html">INTERVENCIJE</a>
-            <a href="kontakt.html">KONTAKT</a>
-            <a href="etno.html">ETNOGRAFSKA SEKCIJA</a>
-        </div>
+      <div class="menu">
+        <a href="zgodovina.html">ZGODOVINA DRUŠTVA</a>
+        <a href="mladina.html">DELO Z MLADINO</a>
+        <a href="starejsi.html">STAREJŠI GASILCI IN GASILKE</a>
+        <a href="zamusanska-noc.html">ZAMUŠANSKA NOČ</a>
+        <a href="intervencije.html">INTERVENCIJE</a>
+        <a href="kontakt.html">KONTAKT</a>
+        <a href="etno.html">ETNOGRAFSKA SEKCIJA</a>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<div class="hero">
+  <div class="hero">
     <h1>PGD ZAMUŠANI</h1>
-</div>
+  </div>
 
 </body>
 </html>
