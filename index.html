@@ -1,273 +1,185 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PGD ZAMUŠANI</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
+    body {
+      margin:0;
       font-family: Arial, sans-serif;
     }
 
-    body {
-      overflow-x: hidden;
-    }
-
+    /* NAV */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.35);
+      top:0;
+      width:100%;
+      background: rgba(0,0,0,0.4);
       backdrop-filter: blur(6px);
-      z-index: 1000;
+      z-index:1000;
     }
 
     .nav-wrap {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px;
     }
 
+    /* LOGO */
     .logo-text {
-      color: white;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 16px;
-      letter-spacing: 1px;
-      white-space: nowrap;
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      text-transform:uppercase;
+      font-size:18px;
     }
 
-    #menu-toggle {
-      display: none;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: white;
-      display: block;
-      border-radius: 2px;
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
+    /* MENU */
     .menu a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.3px;
+      color:white;
+      margin:0 10px;
+      text-decoration:none;
+      font-weight:bold;
+      text-transform:uppercase;
+      font-size:13px;
     }
 
     .menu a:hover {
-      color: red;
+      color:red;
     }
 
+    /* HERO */
     .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+      position:relative;
+      height:100vh;
+      overflow:hidden;
     }
 
     .slide {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0;
-      transform: scale(1);
-      transition: opacity 2s ease-in-out;
+      position:absolute;
+      width:100%;
+      height:100%;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1);
+      transition:opacity 2s;
     }
 
     .slide.active {
-      opacity: 1;
-      animation: zoomEffect 25s linear forwards;
+      opacity:1;
+      animation: zoom 25s linear;
     }
 
-    @keyframes zoomEffect {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.08);
-      }
+    @keyframes zoom {
+      from { transform:scale(1); }
+      to { transform:scale(1.08); }
     }
 
+    /* CONTENT */
     .hero-content {
-      position: absolute;
-      left: 50px;
-      bottom: 50px;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      background: rgba(0, 0, 0, 0.18);
-      padding: 18px 24px;
-      border-radius: 20px;
-      backdrop-filter: blur(4px);
+      position:absolute;
+      bottom:50px;
+      left:50px;
+      display:flex;
+      align-items:center;
+      gap:20px;
+      background:rgba(0,0,0,0.2);
+      padding:20px;
+      border-radius:20px;
     }
 
     .hero-content img {
-      height: 84px;
-      width: auto;
-      object-fit: contain;
-      background: rgba(255,255,255,0.92);
-      padding: 6px;
-      border-radius: 10px;
+      height:90px;
+      background:white;
+      padding:5px;
+      border-radius:10px;
     }
 
     .hero-content h1 {
-      margin: 0;
-      color: white;
-      font-size: 62px;
-      line-height: 1;
-      text-transform: uppercase;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+      color:white;
+      font-size:60px;
+      margin:0;
+      text-transform:uppercase;
     }
 
-    @media (max-width: 900px) {
-      .hamburger {
-        display: flex;
-      }
-
-      .menu {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        gap: 0;
-        padding-top: 10px;
-      }
-
-      .menu a {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 12px 6px;
-        border-top: 1px solid rgba(255,255,255,0.12);
-        font-size: 13px;
-      }
-
-      #menu-toggle:checked ~ .menu {
-        display: flex;
-      }
-
+    /* MOBILE */
+    @media (max-width:900px) {
       .nav-wrap {
-        flex-wrap: wrap;
+        flex-direction:column;
       }
 
       .hero-content {
-        left: 20px;
-        right: 20px;
-        bottom: 25px;
-        flex-direction: row;
-        gap: 14px;
-        padding: 14px 16px;
+        left:20px;
+        bottom:20px;
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-content h1 {
+        font-size:35px;
       }
 
       .hero-content img {
-        height: 58px;
-      }
-
-      .hero-content h1 {
-        font-size: 30px;
+        height:70px;
       }
     }
 
-    @media (max-width: 560px) {
-      .hero-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero-content h1 {
-        font-size: 28px;
-      }
-
-      .logo-text {
-        font-size: 14px;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-  <nav>
-    <div class="nav-wrap">
-      <a href="index.html" class=">PGD ZAMUŠANI</a>
+<nav>
+  <div class="nav-wrap">
 
-      <input type="checkbox" id="menu-toggle" />
+    <!-- ✔ KLIK NA LOGO -->
+    <a href="index.html" class="logo-text">PGD ZAMUŠANI</a>
 
-      <label for="menu-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <div class="menu">
-        <a href="zgodovina.html">ZGODOVINA DRUŠTVA</a>
-        <a href="mladina.html">DELO Z MLADINO</a>
-        <a href="starejsi.html">STAREJŠI GASILCI IN GASILKE</a>
-        <a href="zamusanska-noc.html">ZAMUŠANSKA NOČ</a>
-        <a href="intervencije.html">INTERVENCIJE</a>
-        <a href="kontakt.html">KONTAKT</a>
-        <a href="etno.html">ETNOGRAFSKA SEKCIJA</a>
-      </div>
+    <div class="menu">
+      <a href="zgodovina.html">ZGODOVINA DRUŠTVA</a>
+      <a href="mladina.html">DELO Z MLADINO</a>
+      <a href="starejsi.html">STAREJŠI GASILCI</a>
+      <a href="zamusanska-noc.html">ZAMUŠANSKA NOČ</a>
+      <a href="intervencije.html">INTERVENCIJE</a>
+      <a href="kontakt.html">KONTAKT</a>
     </div>
-  </nav>
 
-  <div class="hero">
-    <div class="slide active" style="background-image: url('hero1.jpg');"></div>
-    <div class="slide" style="background-image: url('hero2.jpg');"></div>
-    <div class="slide" style="background-image: url('hero3.jpg.jpeg');"></div>
+  </div>
+</nav>
 
-    <div class="hero-content">
-      <img src="grb.png" alt="Grb PGD Zamušani">
-      <h1>PGD ZAMUŠANI</h1>
-    </div>
+<div class="hero">
+
+  <!-- SLIKE -->
+  <div class="slide active" style="background-image:url('hero1.jpg')"></div>
+  <div class="slide" style="background-image:url('hero2.jpg')"></div>
+  <div class="slide" style="background-image:url('hero3.jpg.jpeg')"></div>
+
+  <!-- TEKST -->
+  <div class="hero-content">
+    <img src="grb.png">
+    <h1>PGD ZAMUŠANI</h1>
   </div>
 
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
+</div>
 
-    function showNextSlide() {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
 
-    setInterval(showNextSlide, 25000);
-  </script>
+function changeSlide() {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}
+
+setInterval(changeSlide, 25000);
+</script>
 
 </body>
 </html>
