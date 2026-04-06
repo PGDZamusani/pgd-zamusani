@@ -19,34 +19,49 @@ nav {
     position:fixed;
     top:0;
     width:100%;
-    background:rgba(0,0,0,0.75);
-    padding:15px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
     z-index:1000;
 }
 
 .nav-wrap {
+    max-width:1400px;
+    margin:auto;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:15px;
 }
 
 .logo-text {
     color:white;
     text-decoration:none;
     font-weight:bold;
+    text-transform:uppercase;
+}
+
+.menu {
+    display:flex;
+    gap:20px;
+    white-space:nowrap; /* 🔥 prepreči premikanje */
 }
 
 .menu a {
     color:white;
-    margin-left:10px;
     text-decoration:none;
     font-weight:bold;
+    text-transform:uppercase;
+    font-size:13px;
+    display:inline-block;
+}
+
+.menu a:hover {
+    color:red;
 }
 
 /* HERO */
 .hero-small {
-    margin-top:60px;
-    height:300px;
+    height:350px;
     background:url('mladina.jpg') center/cover no-repeat;
     display:flex;
     align-items:flex-end;
@@ -56,19 +71,20 @@ nav {
 .hero-small h1 {
     color:white;
     font-size:40px;
+    text-transform:uppercase;
 }
 
 /* CONTENT */
 .container {
     max-width:1000px;
     margin:auto;
-    padding:30px;
+    padding:40px 20px;
 }
 
 .box {
     background:white;
     padding:25px;
-    border-radius:10px;
+    border-radius:12px;
     margin-bottom:30px;
 }
 
@@ -89,6 +105,11 @@ nav {
     height:250px;
     object-fit:cover;
     border-radius:10px;
+    transition:0.3s;
+}
+
+.gallery img:hover {
+    transform:scale(1.05);
 }
 
 /* FOOTER */
@@ -109,8 +130,13 @@ footer {
     <a href="index.html" class="logo-text">PGD ZAMUŠANI</a>
 
     <div class="menu">
-      <a href="zgodovina.html">ZGODOVINA</a>
-      <a href="mladina.html">MLADINA</a>
+      <a href="zgodovina.html">ZGODOVINA DRUŠTVA</a>
+      <a href="mladina.html">DELO Z MLADINO</a>
+      <a href="starejsi.html">STAREJŠI GASILCI</a>
+      <a href="zamusanska-noc.html">ZAMUŠANSKA NOČ</a>
+      <a href="intervencije.html">INTERVENCIJE</a>
+      <a href="kontakt.html">KONTAKT</a>
+      <a href="etno.html">ETNOGRAFSKA SEKCIJA</a>
     </div>
   </div>
 </nav>
@@ -132,7 +158,7 @@ footer {
   <div class="gallery">
     <img src="mladina.jpg">
     <img src="mladina1.jpg">
-    <img src="mladina2.jpeg">
+    <img src="mladina2.jpg">
     <img src="mladina3.jpg">
     <img src="mladina4.jpg">
   </div>
