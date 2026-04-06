@@ -1,68 +1,138 @@
-<!DOCTYPE html><html lang="sl">
+<!DOCTYPE html>
+<html lang="sl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PGD Zamušani</title>
+
 <style>
-body{margin:0;font-family:Arial;background:#111;color:#fff}
-section{padding:60px 20px;text-align:center}
-.hero{background:url('hero.jpg') center/cover;height:90vh;display:flex;flex-direction:column;justify-content:center}
-h1{font-size:48px;margin:0}
-.grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-.card{background:#222;padding:20px;border-radius:15px;width:280px}
-img{width:100%;border-radius:10px}
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+}
+
+/* MENU */
+nav {
+    background:#b30000;
+    padding:15px;
+    position:sticky;
+    top:0;
+}
+
+nav a {
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover {
+    text-decoration:underline;
+}
+
+/* HEADER */
+header {
+    background:url("hero.jpg") center/cover;
+    height:300px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:black;
+    background-color:rgba(255,255,255,0.6);
+    background-blend-mode:lighten;
+}
+
+header h1 {
+    font-size:40px;
+}
+
+/* SECTIONS */
+section {
+    padding:40px 20px;
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    margin-top:20px;
+    border-radius:10px;
+}
+
+/* IMAGES */
+img {
+    width:100%;
+    max-width:400px;
+    margin:10px;
+    border-radius:8px;
+}
+
+/* GRID */
+.gallery {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
 </style>
 </head>
-<body><section class="hero">
-<h1>PGD Zamušani</h1>
-<p>Pogum. Tradicija. Skupnost.</p>
-</section><section>
-<h2>Intervencije</h2>
-<div class="grid">
-<img src="intervencija1.jpg">
-<img src="intervencija2.jpg">
-<img src="intervencija3.jpg">
-</div>
-</section><section>
-<h2>Mladina</h2>
-<div class="grid">
-<img src="mladina1.jpg">
-<img src="mladina2.jpg">
-<img src="mladina3.jpg">
-</div>
-</section><section>
-<h2>Tekmovanja</h2>
-<div class="grid">
-<img src="tekmovanje1.jpg">
-<img src="tekmovanje2.jpg">
-<img src="tekmovanje3.jpg">
-</div>
-</section><section>
-<h2>Starejši gasilci</h2>
-<div class="grid">
-<img src="starejsi1.jpg">
-<img src="starejsi2.jpg">
-<img src="starejsi3.jpg">
-</div>
-</section><section>
-<h2>Vodstvo</h2>
-<div class="grid">
-<div class="card">
-<img src="predsednik.jpg">
-<h3>Matjaž Cajnko</h3>
-<p>Predsednik</p>
-<p>068 608 677</p>
-</div>
-<div class="card">
-<img src="poveljnik.jpg">
-<h3>Bojan Vozlič</h3>
-<p>Poveljnik</p>
-<p>070 711 570</p>
-</div>
-</div>
-</section><section>
-<h2>Kontakt</h2>
-<p>Zamušani 31a, 2272 Gorišnica</p>
-<p>pgdzamusani@gmail.com</p>
-</section></body>
+
+<body>
+
+<!-- MENU -->
+<nav>
+    <a href="#domov">Domov</a>
+    <a href="#mladina">Mladina</a>
+    <a href="#starejsi">Starejši</a>
+    <a href="#intervencije">Intervencije</a>
+    <a href="#etno">Etnografsko</a>
+    <a href="#kontakt">Kontakt</a>
+</nav>
+
+<!-- HEADER -->
+<header id="domov">
+    <h1>PGD Zamušani</h1>
+</header>
+
+<!-- MLADINA -->
+<section id="mladina">
+    <h2>Mladina</h2>
+    <div class="gallery">
+        <img src="mladina.jpg">
+    </div>
+</section>
+
+<!-- STAREJSI -->
+<section id="starejsi">
+    <h2>Starejši gasilci</h2>
+    <div class="gallery">
+        <img src="starejsi1.jpg">
+        <img src="starejsi2.jpg">
+    </div>
+</section>
+
+<!-- INTERVENCIJE -->
+<section id="intervencije">
+    <h2>Intervencije</h2>
+    <div class="gallery">
+        <img src="intervencija1.jpg">
+        <img src="intervencija2.jpg">
+        <img src="intervencija3.jpg">
+    </div>
+</section>
+
+<!-- ETNO -->
+<section id="etno">
+    <h2>Etnografska sekcija</h2>
+    <div class="gallery">
+        <img src="etno.jpg">
+    </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+    <h2>Kontakt</h2>
+    <p><b>Poveljnik:</b> Bojan Vozlič<br>070-711-570</p>
+    <p><b>Predsednik:</b> Matjaž Cajnko<br>068608677</p>
+</section>
+
+</body>
 </html>
