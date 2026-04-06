@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZGODOVINA DRUŠTVA - PGD ZAMUŠANI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #111;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+    }
+
+    .nav-wrap {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-text {
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: white;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+
+    .menu a:hover {
+      color: red;
+    }
+
+    .hero-small {
+      height: 46vh;
+      min-height: 320px;
+      background: url('hero1.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 0 40px 0;
+      position: relative;
+    }
+
+    .hero-small::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .hero-inner img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background: rgba(255,255,255,0.92);
+      padding: 6px;
+      border-radius: 10px;
+    }
+
+    .hero-inner h1 {
+      margin: 0;
+      color: white;
+      text-transform: uppercase;
+      font-size: 48px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .intro-box {
+      background: white;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-top: -40px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .intro-box p {
+      line-height: 1.8;
+      font-size: 17px;
+      margin: 0 0 18px 0;
+    }
+
+    .section-title {
+      margin: 50px 0 20px 0;
+      font-size: 30px;
+      text-transform: uppercase;
+      color: #111;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      background: white;
+      border-left: 6px solid #b30000;
+      border-radius: 16px;
+      padding: 18px 20px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    }
+
+    .timeline-item strong {
+      color: #b30000;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 24px 20px;
+      margin-top: 40px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 10px;
+      }
+
+      .menu a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px 6px;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        font-size: 13px;
+      }
+
+      #menu-toggle:checked ~ .menu {
+        display: flex;
+      }
+
+      .nav-wrap {
+        flex-wrap: wrap;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-inner h1 {
+        font-size: 34px;
+      }
+
+      .intro-box {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-wrap">
+      <div class="logo-text">PGD ZAMUŠANI</div>
+
+      <input type="checkbox" id="menu-toggle" />
+
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <div class="menu">
+        <a href="zgodovina.html">ZGODOVINA DRUŠTVA</a>
+        <a href="mladina.html">DELO Z MLADINO</a>
+        <a href="starejsi.html">STAREJŠI GASILCI IN GASILKE</a>
+        <a href="zamusanska-noc.html">ZAMUŠANSKA NOČ</a>
+        <a href="intervencije.html">INTERVENCIJE</a>
+        <a href="kontakt.html">KONTAKT</a>
+        <a href="etno.html">ETNOGRAFSKA SEKCIJA</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-small">
+    <div class="hero-inner">
+      <img src="grb.png" alt="Grb PGD Zamušani">
+      <h1>ZGODOVINA DRUŠTVA</h1>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="intro-box">
+      <p>Prostovoljno gasilsko društvo Zamušani je bilo ustanovljeno leta 1952. Nastalo je iz potrebe po večji požarni varnosti v vasi Zamušani, ki se razteza od ravninskega dela ob reki Pesnici vse do višjih delov naselja.</p>
+
+      <p>Pobudo za ustanovitev društva je dal Janez Pintarič, ki je deloval v PGD Gorišnica. Prvotno je bila ustanovljena prostovoljna gasilska četa Zamušani, ki je delovala v okviru PGD Gorišnica, že leta 1953 pa je društvo postalo samostojno kot PGD Zamušani.</p>
+
+      <p>Od ustanovitve naprej društvo neprekinjeno raste, se razvija in posodablja. Skozi desetletja je gradilo gasilski dom, posodabljalo vozni park in opremo, hkrati pa skrbelo za vzgojo mladih, tekmovalni duh ter povezovanje krajanov.</p>
+    </div>
+
+    <h2 class="section-title">POMEMBNI MEJNIKI</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong>1952</strong>
+        Ustanovljeno je bilo Prostovoljno gasilsko društvo Zamušani.
+      </div>
+
+      <div class="timeline-item">
+        <strong>1956</strong>
+        Zgrajen je bil prvi gasilski dom.
+      </div>
+
+      <div class="timeline-item">
+        <strong>1981 / 1988</strong>
+        Zgrajen je bil novi gasilski dom, ki je bil kasneje predan v uporabo.
+      </div>
+
+      <div class="timeline-item">
+        <strong>2009</strong>
+        Izvedena je bila celovita obnova gasilskega doma.
+      </div>
+
+      <div class="timeline-item">
+        <strong>2012</strong>
+        Društvo je ob 60-letnici izdalo prvi zbornik oziroma kroniko društva.
+      </div>
+
+      <div class="timeline-item">
+        <strong>2019</strong>
+        Prevzem novega vozila GVM-1 Citroen.
+      </div>
+
+      <div class="timeline-item">
+        <strong>2022</strong>
+        Društvo je praznovalo 70 let delovanja.
+      </div>
+
+      <div class="timeline-item">
+        <strong>2024–2025</strong>
+        Društvo nadaljuje z razvojem, organizacijo pomembnih dogodkov in posodobitvijo voznega parka.
+      </div>
+    </div>
+
+    <h2 class="section-title">ZGODOVINSKI UTRINKI</h2>
+
+    <div class="gallery">
+      <img src="zgodovina1.jpg" alt="Zgodovina društva 1">
+      <img src="zgodovina2.jpg" alt="Zgodovina društva 2">
+      <img src="zgodovina3.jpg" alt="Zgodovina društva 3">
+    </div>
+  </div>
+
+  <footer>
+    PGD ZAMUŠANI
+  </footer>
+
+</body>
+</html>
