@@ -1,8 +1,11 @@
-<!DOCTYPE html><html lang="sl">
+<!DOCTYPE html>
+<html lang="sl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PGD Zamušani</title><style>
+<title>PGD Zamušani</title>
+
+<style>
 body {
     margin:0;
     font-family: Arial, sans-serif;
@@ -29,34 +32,53 @@ nav a {
 }
 
 nav a:hover {
-    color:#ff0000;
+    color:red;
 }
 
 /* HERO */
 .hero {
     height:100vh;
-    background:url("hero.jpg") center/cover no-repeat;
+    background-size:cover;
+    background-position:center;
     display:flex;
     justify-content:center;
     align-items:center;
+    animation: slideshow 15s infinite;
 }
 
 .hero h1 {
-    color:#000000;
+    color:#000;
     font-size:90px;
     text-transform:uppercase;
     margin:0;
 }
 
-</style></head><body><!-- MENU --><nav>
-    <a href="vsebina.html">ZGODOVINA DRUŠTVA</a>
-    <a href="vsebina.html">DELO Z MLADINO</a>
-    <a href="vsebina.html">STAREJŠI GASILCI IN GASILKE</a>
-    <a href="vsebina.html">ZAMUŠANSKA NOČ</a>
-    <a href="vsebina.html">INTERVENCIJE</a>
-    <a href="vsebina.html">KONTAKT</a>
-    <a href="vsebina.html">ETNOGRAFSKA SEKCIJA</a>
-</nav><!-- HERO --><div class="hero">
+/* SLIDESHOW */
+@keyframes slideshow {
+    0% { background-image: url('hero1.jpg'); }
+    33% { background-image: url('hero2.jpg'); }
+    66% { background-image: url('hero3.jpg'); }
+    100% { background-image: url('hero1.jpg'); }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="zgodovina.html">ZGODOVINA DRUŠTVA</a>
+    <a href="mladina.html">DELO Z MLADINO</a>
+    <a href="starejsi.html">STAREJŠI GASILCI IN GASILKE</a>
+    <a href="zamusanska-noc.html">ZAMUŠANSKA NOČ</a>
+    <a href="intervencije.html">INTERVENCIJE</a>
+    <a href="kontakt.html">KONTAKT</a>
+    <a href="etno.html">ETNOGRAFSKA SEKCIJA</a>
+</nav>
+
+<div class="hero">
     <h1>PGD ZAMUŠANI</h1>
-</div></body>
+</div>
+
+</body>
 </html>
