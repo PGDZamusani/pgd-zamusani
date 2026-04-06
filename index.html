@@ -9,15 +9,18 @@
 body {
     margin:0;
     font-family: Arial, sans-serif;
-    background:#f5f5f5;
+    scroll-behavior:smooth;
 }
 
 /* MENU */
 nav {
-    background:#b30000;
-    padding:15px;
-    position:sticky;
+    position:fixed;
     top:0;
+    width:100%;
+    background:rgba(0,0,0,0.7);
+    padding:15px;
+    text-align:center;
+    z-index:1000;
 }
 
 nav a {
@@ -28,48 +31,47 @@ nav a {
 }
 
 nav a:hover {
-    text-decoration:underline;
+    color:#ffcc00;
 }
 
-/* HEADER */
-header {
-    background:url("hero.jpg") center/cover;
-    height:300px;
+/* HERO */
+.hero {
+    height:100vh;
+    background:url("hero.jpg") center/cover no-repeat;
     display:flex;
-    align-items:center;
     justify-content:center;
-    color:black;
-    background-color:rgba(255,255,255,0.6);
-    background-blend-mode:lighten;
+    align-items:center;
 }
 
-header h1 {
+.hero h1 {
+    color:black;
+    background:rgba(255,255,255,0.7);
+    padding:20px 40px;
+    border-radius:10px;
     font-size:40px;
 }
 
-/* SECTIONS */
+/* SECTION */
 section {
-    padding:40px 20px;
-    max-width:1000px;
-    margin:auto;
-    background:white;
-    margin-top:20px;
-    border-radius:10px;
+    padding:80px 20px;
+    text-align:center;
 }
 
-/* IMAGES */
-img {
-    width:100%;
-    max-width:400px;
-    margin:10px;
-    border-radius:8px;
+h2 {
+    margin-bottom:20px;
 }
 
-/* GRID */
+/* GALLERY */
 .gallery {
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
+}
+
+.gallery img {
+    width:300px;
+    margin:10px;
+    border-radius:10px;
 }
 
 </style>
@@ -79,18 +81,17 @@ img {
 
 <!-- MENU -->
 <nav>
-    <a href="#domov">Domov</a>
     <a href="#mladina">Mladina</a>
     <a href="#starejsi">Starejši</a>
     <a href="#intervencije">Intervencije</a>
-    <a href="#etno">Etnografsko</a>
+    <a href="#etno">Etno</a>
     <a href="#kontakt">Kontakt</a>
 </nav>
 
-<!-- HEADER -->
-<header id="domov">
+<!-- HERO -->
+<div class="hero">
     <h1>PGD Zamušani</h1>
-</header>
+</div>
 
 <!-- MLADINA -->
 <section id="mladina">
